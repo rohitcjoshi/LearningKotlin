@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Weight On Planet</string>
+    <string name="venus_message">Weight on Venus is</string>
+    <string name="mars_message">Weight on Mars is</string>
+    <string name="jupiter_message">Weight on Jupiter is</string>
+    <string name="planet_mars">Mars</string>
+    <string name="planet_venus">Venus</string>
+    <string name="planet_jupiter">Jupiter</string>
+    <string name="btn_show_weight">Show weight!</string>
+    <string name="hint_enter_weight">Enter your weight (pounds)</string>
+    <string name="page_title_msg">What\'s your weight on ..?</string>
+</resources>
