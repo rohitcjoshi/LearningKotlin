@@ -93,7 +93,7 @@ class ChoresDBHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                 chore.assignedBy = cursor.getString(cursor.getColumnIndex(KEY_CHORE_ASSIGNED_BY))
                 chore.timeAssigned = cursor.getLong(cursor.getColumnIndex(KEY_CHORE_ASSIGNED_TIME))
 
-                choreList.add(chore)
+                choreList.add(0, chore)
             } while (cursor.moveToNext())
         }
         cursor.close()
@@ -133,6 +133,8 @@ class ChoresDBHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         val db: SQLiteDatabase = readableDatabase
         val countQuery = "SELECT * FROM " + TABLE_NAME
         val cursor: Cursor = db.rawQuery(countQuery, null)
-        return cursor.count
+        val count = cursor.count
+        cursor.close()
+        return count
     }
 }
