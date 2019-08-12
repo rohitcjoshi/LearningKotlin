@@ -1,5 +1,8 @@
 package com.rohit.kotlin.choreapp.model
 
+import java.text.DateFormat
+import java.util.*
+
 class Chore() {
     var choreName: String? = null
     var assignedBy: String? = null
@@ -13,5 +16,11 @@ class Chore() {
         this.assignedTo = assignedTo
         this.timeAssigned = timeAssigned
         this.id = id
+    }
+
+    fun getFormattedDateString(): String {
+        val dateFormat: DateFormat = DateFormat.getDateInstance()
+        // Formatted Date: Feb 24, 2019
+        return dateFormat.format(timeAssigned?.let { Date(it).time })
     }
 }

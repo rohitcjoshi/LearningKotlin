@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="7dp">
+
+    <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:padding="10dp">
+            <ImageView android:id="@+id/imgThumbnailView" android:layout_width="60dp"
+                       android:layout_height="60dp"
+                       android:scaleType="fitXY"
+                       android:src="@mipmap/ic_launcher"
+                       android:layout_centerVertical="true"
+                       android:contentDescription="@string/app_name"/>
+
+            <LinearLayout android:orientation="vertical"
+                          android:id="@+id/textContainer"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_toRightOf="@id/imgThumbnailView"
+                          android:layout_toLeftOf="@id/buttonsContainer"
+                          android:layout_centerVertical="true"
+                          android:paddingStart="10dp">
+                <TextView android:id="@+id/tvChoreName"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="16sp"
+                          android:textStyle="bold"
+                          android:maxLines="2"
+                          android:ellipsize="end"
+                          android:text="@string/hint_enter_chore"/>
+                <TextView android:id="@+id/tvAssignedBy"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="16sp"
+                          android:textStyle="normal"
+                          android:maxLines="1"
+                          android:text="@string/hint_assigned_by"/>
+                <TextView android:id="@+id/tvAssignedTo"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="16sp"
+                          android:textStyle="normal"
+                          android:maxLines="1"
+                          android:text="@string/hint_assign_to"/>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/buttonsContainer"
+                          android:orientation="horizontal"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_alignParentEnd="true"
+                          android:layout_marginEnd="10dp">
+                <ImageButton android:id="@+id/btnEdit"
+                             android:layout_width="25dp"
+                             android:layout_height="25dp"
+                             android:padding="10dp"
+                             android:background="@android:color/transparent"
+                             android:src="@android:drawable/ic_menu_edit"/>
+                <ImageButton android:id="@+id/btnDelete"
+                             android:layout_width="25dp"
+                             android:layout_height="25dp"
+                             android:padding="10dp"
+                             android:background="@android:color/transparent"
+                             android:layout_marginLeft="25dp"
+                             android:src="@android:drawable/ic_menu_delete"/>
+            </LinearLayout>
+
+            <TextView android:id="@+id/tvDateAssigned"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="14sp"
+                      android:textStyle="normal"
+                      android:maxLines="1"
+                      android:gravity="bottom"
+                      android:layout_alignParentRight="true"
+                      android:layout_below="@id/buttonsContainer"
+                      android:layout_alignBottom="@id/textContainer"
+                      android:paddingRight="10dp"
+                      android:text="@string/hint_enter_chore"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

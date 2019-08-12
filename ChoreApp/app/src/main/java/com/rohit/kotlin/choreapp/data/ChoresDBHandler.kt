@@ -70,13 +70,9 @@ class ChoresDBHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         chore.assignedBy = cursor.getString(cursor.getColumnIndex(KEY_CHORE_ASSIGNED_BY))
         chore.timeAssigned = cursor.getLong(cursor.getColumnIndex(KEY_CHORE_ASSIGNED_TIME))
 
-        val dateFormat: DateFormat = DateFormat.getDateInstance()
-        // Formatted Date: Feb 24, 2019
-        var formattedDate = dateFormat.format(Date(cursor.getLong(cursor.getColumnIndex(KEY_CHORE_ASSIGNED_TIME))).time)
         cursor.close()
 
         return chore
-
     }
 
     /**
@@ -101,6 +97,7 @@ class ChoresDBHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
             } while (cursor.moveToNext())
         }
         cursor.close()
+        Log.d("DB Handler", "----------> Size of list: " + choreList.size)
         return choreList
     }
 
@@ -133,8 +130,9 @@ class ChoresDBHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
      * Get count of chores stored in DB
      */
     fun getChoresCount(): Int {
-        var countQuery = ""
-
-        return 0
+        val db: SQLiteDatabase = readableDatabase
+        val countQuery = "SELECT * FROM " + TABLE_NAME
+        val cursor: Cursor = db.rawQuery(countQuery, null)
+        return cursor.count
     }
 }
