@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:padding="15dp"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:ems="10"
+            android:id="@+id/etPopupEnterChore" android:hint="@string/hint_enter_chore"
+            android:layout_marginBottom="10dp" android:singleLine="true"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/etPopupAssignedTo" android:hint="@string/hint_assign_to" android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" android:singleLine="true"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/etPopupAssignedBy" android:hint="@string/hint_assigned_by" android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" android:singleLine="true"/>
+    <Button
+            android:text="@string/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/btnPopupSave" android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:textColor="#FCFBFB" android:shadowColor="#009B8686" android:background="@color/colorPrimary"/>
+</LinearLayout>

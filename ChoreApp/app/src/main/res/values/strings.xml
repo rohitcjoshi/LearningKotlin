@@ -4,4 +4,5 @@
     <string name="hint_assign_to">Assign to..</string>
     <string name="hint_assigned_by">Assigned by..</string>
     <string name="btn_save">Save Chore</string>
+    <string name="menu_title">Add Chore</string>
 </resources>
