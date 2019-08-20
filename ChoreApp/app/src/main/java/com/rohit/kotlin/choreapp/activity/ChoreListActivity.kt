@@ -3,10 +3,12 @@ package com.rohit.kotlin.choreapp.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -86,5 +88,24 @@ class ChoreListActivity : AppCompatActivity() {
         dialogBuilder = AlertDialog.Builder(this).setView(view)
         alertDialog = dialogBuilder!!.create()
         alertDialog?.show()
+
+        btnSave.setOnClickListener {
+            val name = choreName.text.toString().trim()
+            val aBy = assignedBy.text.toString().trim()
+            val aTo = assignedTo.text.toString().trim()
+            if(!TextUtils.isEmpty(name)
+                && !TextUtils.isEmpty(aBy)
+                && !TextUtils.isEmpty(aTo)) {
+                val chore = Chore()
+                chore.choreName = name
+                chore.assignedBy = aBy
+                chore.assignedTo = aTo
+                dbHandler!!.createChore(chore)
+            } else {
+                Toast.makeText(this, "Enter all values", Toast.LENGTH_LONG).show()
+            }
+
+            alertDialog!!.dismiss()
+        }
     }
 }
