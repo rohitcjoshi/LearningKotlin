@@ -46,7 +46,12 @@ class ChoreListActivity : AppCompatActivity() {
         choresListView.layoutManager = layoutManager
         choresListView.adapter = adapter
 
+        updateView()
+    }
+
+    fun updateView() {
         if(dbHandler!!.getChoresCount() > 0) {
+            savedChoreList!!.clear()
             // Load chores from DB
             choreList = dbHandler!!.readAllChores()
             for (ch in choreList!!.iterator()) {
@@ -105,8 +110,7 @@ class ChoreListActivity : AppCompatActivity() {
                 dbHandler!!.createChore(chore)
                 alertDialog!!.dismiss()
 
-                startActivity(Intent(this, ChoreListActivity::class.java))
-                finish()
+                updateView()
             } else {
                 Toast.makeText(this, "Enter all values", Toast.LENGTH_LONG).show()
             }

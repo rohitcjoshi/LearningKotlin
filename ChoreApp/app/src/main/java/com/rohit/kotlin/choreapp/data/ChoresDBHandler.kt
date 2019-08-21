@@ -88,6 +88,7 @@ class ChoresDBHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         if (cursor.moveToFirst()) {
             do {
                 val chore = Chore()
+                chore.id =  cursor.getInt(cursor.getColumnIndex(KEY_ID))
                 chore.choreName = cursor.getString(cursor.getColumnIndex(KEY_CHORE_NAME))
                 chore.assignedTo = cursor.getString(cursor.getColumnIndex(KEY_CHORE_ASSIGNED_TO))
                 chore.assignedBy = cursor.getString(cursor.getColumnIndex(KEY_CHORE_ASSIGNED_BY))
@@ -120,9 +121,9 @@ class ChoresDBHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
     /**
      * Delete chore from DB
      */
-    fun deleteChore(chore: Chore) {
+    fun deleteChore(id: Int) {
         val db: SQLiteDatabase = writableDatabase
-        db.delete(TABLE_NAME, KEY_ID + "=?", arrayOf(chore.id.toString()))
+        db.delete(TABLE_NAME, KEY_ID + "=?", arrayOf(id.toString()))
         db.close()
     }
 
