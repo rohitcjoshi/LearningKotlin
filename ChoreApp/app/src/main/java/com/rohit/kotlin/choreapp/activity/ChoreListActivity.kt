@@ -39,7 +39,7 @@ class ChoreListActivity : AppCompatActivity() {
         choreList = ArrayList()
         savedChoreList = ArrayList()
 
-        layoutManager = LinearLayoutManager(this)
+        layoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager?
         adapter = ChoreListAdapter(this, savedChoreList!!)
 
         // Setup recycle view
@@ -51,6 +51,7 @@ class ChoreListActivity : AppCompatActivity() {
             choreList = dbHandler!!.readAllChores()
             for (ch in choreList!!.iterator()) {
                 val chore: Chore = Chore()
+                chore.id = ch.id
                 chore.choreName = ch.choreName
                 chore.assignedTo = ch.assignedTo
                 chore.assignedBy = ch.assignedBy
@@ -87,6 +88,7 @@ class ChoreListActivity : AppCompatActivity() {
 
         dialogBuilder = AlertDialog.Builder(this).setView(view)
         alertDialog = dialogBuilder!!.create()
+        alertDialog?.setCancelable(true)
         alertDialog?.show()
 
         btnSave.setOnClickListener {
@@ -101,11 +103,13 @@ class ChoreListActivity : AppCompatActivity() {
                 chore.assignedBy = aBy
                 chore.assignedTo = aTo
                 dbHandler!!.createChore(chore)
+                alertDialog!!.dismiss()
+
+                startActivity(Intent(this, ChoreListActivity::class.java))
+                finish()
             } else {
                 Toast.makeText(this, "Enter all values", Toast.LENGTH_LONG).show()
             }
-
-            alertDialog!!.dismiss()
         }
     }
 }
