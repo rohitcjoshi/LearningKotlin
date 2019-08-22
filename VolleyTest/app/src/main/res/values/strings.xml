@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">VolleyTestApplication</string>
+    <string name="app_name">Recipe Finder</string>
+    <string name="recipe_question">WHAT WOULD YOU LIKE TO MAKE?</string>
+    <string name="hintIngredients">Ingredients: e.g. tomato, sugar..</string>
+    <string name="hintSearchTerm">Search for: e.g. meatloaf..</string>
+    <string name="btnTextFind">Find!</string>
+    <string name="recipe_title">Recipe Title</string>
+    <string name="recipeIngredients">Ingredients</string>
 </resources>

@@ -1,7 +1,8 @@
-package com.rohit.kotlin.volleytest
+package com.rohit.kotlin.volleytest.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.rohit.kotlin.volleytest.R
 
 class MainActivity : AppCompatActivity() {
 
