@@ -45,7 +45,7 @@ class RecipeList : AppCompatActivity() {
     }
 
     fun getRecipe(url: String, queryIngredient: String, querySearch: String) {
-        val recipeReq = JsonObjectRequest(Request.Method.GET, url+queryIngredient+ QUERY+querySearch, null,
+        val recipeReq = JsonObjectRequest(Request.Method.GET, url, null,
             Response.Listener {
                 response: JSONObject ->
                 try {

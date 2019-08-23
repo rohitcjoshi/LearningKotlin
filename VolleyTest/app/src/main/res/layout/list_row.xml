@@ -2,12 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+              android:layout_height="wrap_content"
+              android:padding="5dp">
     <androidx.cardview.widget.CardView android:layout_width="match_parent"
-                                       android:layout_height="wrap_content">
+                                       android:layout_height="wrap_content"
+                                       android:background="@color/cardview_light_background">
         <RelativeLayout android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-        android:padding="15dp">
+                        android:padding="15dp">
 
             <ImageView
                     android:layout_width="wrap_content"
@@ -33,8 +35,8 @@
                       android:textColor="@color/colorPrimary"
                       android:text="@string/recipeIngredients"/>
             <Button android:id="@+id/btnLink"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_below="@id/tvIngredientTitle"
                     android:layout_alignParentEnd="true"
                     android:background="@android:drawable/ic_menu_share"/>
