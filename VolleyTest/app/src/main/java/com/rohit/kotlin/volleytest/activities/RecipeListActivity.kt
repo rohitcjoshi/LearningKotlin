@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.layout_recipe_list.*
 import org.json.JSONException
 import org.json.JSONObject
 
-class RecipeList : AppCompatActivity() {
+class RecipeListActivity : AppCompatActivity() {
 
     var volleyReq: RequestQueue? = null
     var recipeList: ArrayList<Recipe>? = null

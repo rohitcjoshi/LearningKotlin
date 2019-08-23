@@ -1,6 +1,8 @@
 package com.rohit.kotlin.volleytest.data
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -36,7 +38,7 @@ class RecipeListAdapter(private val list: ArrayList<Recipe>,
 
         fun bindView(recipe: Recipe) {
             title.text = recipe.title
-            ingredients.text = recipe.ingredients
+            ingredients.text = "Ingredients: " + recipe.ingredients
             if(!TextUtils.isEmpty(recipe.thumbnailUrl)) {
                 Picasso.get().load(recipe.thumbnailUrl)
                     .placeholder(android.R.drawable.ic_menu_report_image)
@@ -45,7 +47,11 @@ class RecipeListAdapter(private val list: ArrayList<Recipe>,
             } else {
                 Picasso.get().load(R.mipmap.ic_launcher)
             }
-            btnLink.setOnClickListener {  }
+            btnLink.setOnClickListener{
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse(recipe.link)
+                context.startActivity(intent)
+            }
         }
     }
 }
