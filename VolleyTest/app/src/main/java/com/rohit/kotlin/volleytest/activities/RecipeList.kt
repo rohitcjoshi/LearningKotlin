@@ -11,19 +11,21 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.rohit.kotlin.volleytest.R
+import com.rohit.kotlin.volleytest.model.Recipe
 import org.json.JSONException
 import org.json.JSONObject
 
 class RecipeList : AppCompatActivity() {
 
     var volleyReq: RequestQueue? = null
+    var recipeList: ArrayList<Recipe>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_recipe_list)
 
         volleyReq = Volley.newRequestQueue(this)
-
+        recipeList = ArrayList<Recipe>()
     }
 
     fun getRecipe(url: String, queryIngredient: String, querySearch: String) {
@@ -31,7 +33,21 @@ class RecipeList : AppCompatActivity() {
             Response.Listener {
                 response: JSONObject ->
                 try {
+                    val resultArray = response.getJSONArray("results")
+                    for(i in 0..resultArray.length() - 1) {
+                        val recipeObj = resultArray.getJSONObject(i)
+                        val title = recipeObj.getString("title")
+                        val link = recipeObj.getString("href")
+                        val thumbnail = recipeObj.getString("thumbnail")
+                        val ingredients = recipeObj.getString("ingredients")
 
+                        val recipe = Recipe()
+                        recipe.title = title
+                        recipe.link = link
+                        recipe.thumbnailUrl = thumbnail
+                        recipe.ingredients = ingredients
+                        recipeList!!.add(recipe)
+                    }
                 } catch (e: JSONException) {e.printStackTrace()}
             },
             Response.ErrorListener {

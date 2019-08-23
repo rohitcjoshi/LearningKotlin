@@ -34,9 +34,9 @@ class RecipeListAdapter(private val list: ArrayList<Recipe>,
         val ingredients = itemView.findViewById<TextView>(R.id.tvIngredientTitle)
         val btnLink = itemView.findViewById<Button>(R.id.btnLink)
 
-        fun bindView(recipe: Recipe?) {
-            title.text = recipe!!.title
-            ingredients.text = recipe!!.ingredients
+        fun bindView(recipe: Recipe) {
+            title.text = recipe.title
+            ingredients.text = recipe.ingredients
             if(!TextUtils.isEmpty(recipe.thumbnailUrl)) {
                 Picasso.get().load(recipe.thumbnailUrl)
                     .placeholder(android.R.drawable.ic_menu_report_image)
