@@ -28,10 +28,10 @@ class MainActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         // Create new user
-        val email = emailId.text.toString().trim()
-        val password = passwordId.text.toString().trim()
         val btn = createAccountBtn
         btn.setOnClickListener {
+            val email = emailId.text.toString().trim()
+            val password = passwordId.text.toString().trim()
             mAuth!!.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                 task: Task<AuthResult> ->
                     if(task.isSuccessful) {
