@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 task: Task<AuthResult> ->
                     if(task.isSuccessful) {
                         val user: FirebaseUser = mAuth!!.currentUser!!
-                        Log.d("ROHIT", "New user : " + user.email.toString())
+                        Toast.makeText(this, "New user created..! " + user.email.toString(), Toast.LENGTH_LONG).show()
                     } else {
                         Log.d("ROHIT", "New user not created..!! Exception : " + task.exception.toString())
                     }
